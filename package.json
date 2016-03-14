@@ -1,0 +1,10 @@
+{
+    "name": "prefixtree",
+    "version": "0.1.0",
+    "description": "Preliminary implementation of trie that should be used in autosuggestions feature",
+    "keywords": ["util", "functional", "server", "client", "browser", "trie", "autocomplete"],
+    "author": {"name" : "Ruslan Karpov",
+        "email" : "skifzmail@gmail.com"},
+    "contributors": [],
+    "dependencies": {}
+}
