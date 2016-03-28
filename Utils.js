@@ -6,9 +6,7 @@ Utils = {
             var nodeName = word.toLowerCase().substring(i, i + numberOfChars);
             if (!existingNodes[nodeName]) {
              Utils._buildLeaf(existingNodes, nodeName, word);
-            } else {
-                Utils._addLeaf(existingNodes[nodeName], word);
-            }
+            } 
         }
     },
     
@@ -65,7 +63,7 @@ Utils = {
     _buildLeaf : function (parent, nodeKey, value) {
         'use strict';
         
-        if (value instanceof Array) {
+        if (Array.isArray(value)) {
             var upperKey = nodeKey.toUpperCase();
             var filtredValues = new Array();
             Object.keys(value).forEach(function(key) {
@@ -86,7 +84,7 @@ Utils = {
             node = [value];
         } else {
             var exists = false;
-            for (i in node) {
+            for (var i in node) {
                 if (node[i].toString().toUpperCase() == value.toString().toUpperCase()) {
                     exists = true;
                     break;
@@ -126,7 +124,7 @@ Utils = {
         
         Object.keys(nodes).forEach(function(valueKey) {
             if (isNaN(valueKey)) {
-                if (nodes[valueKey] instanceof Array) {
+                if (Array.isArray(nodes[valueKey])) {
                     Utils._getAllLeafs(destinationArray, nodes[valueKey]);
                 } else {
                     destinationArray.push(nodes[valueKey]);
@@ -152,7 +150,7 @@ Utils = {
             tabs += '|';
         }
         Object.keys(node).forEach(function(key) {
-            if (node[key] instanceof Array) {
+            if (Array.isArray(node[key])) {
                 if (isNaN(key)) {
                     console.log(tabs + key + ' -> ');
                     Utils._printNode(node[key], ++numOfTabs);

@@ -15,7 +15,7 @@ tree = function (rootNodes){
             Object.keys(values).forEach(function(valueKey) {
                 if (isNaN(valueKey)) {
                     if (valueKey.toUpperCase().indexOf(key) > -1) {
-                        if (values[valueKey] instanceof Array) {
+                        if (Array.isArray(values[valueKey])) {
                             Utils._mergeSubArrays(found, values[valueKey]);
                             isNodesFound = true;
                         } else {
